@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:07 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/25 17:28:08 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:40:32 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	init(t_map *map, char **av)
 
 void	init_ray(t_map *map)
 {
-	map->moveSpeed = 0.3;
-	map->rotSpeed = 0.3;
+	map->moveSpeed = 0.7;
+	map->rotSpeed = 0.7;
 	//------------------
 	map->ray.dirX = -1;
 	map->ray.dirY = 0;

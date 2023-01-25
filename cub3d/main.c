@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:43 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/25 17:15:18 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:30:24 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,11 @@ int	main(int ac, char *av[])
 	map.win = mlx_new_window(map.mlx, width, height, "window");
 	mlx_new_image(map.mlx, width, height);
 	put_pix(&map);
-	mlx_hook(map.win, 2, 1L << 0, action_game, &map);
+	//mlx_hook(map.win, 2, 1L << 0, action_game, &map);
+	//--------TEST-----------//
+	mlx_loop_hook(map.mlx, &test_loop, &map);
+	mlx_hook(map.win, 2, 1L << 0, action_ray_game, &map);
+	//-----------------------//
 	mlx_hook(map.win, 17, 1L << 17, ft_close, &map);
 	mlx_loop(map.mlx);
 }

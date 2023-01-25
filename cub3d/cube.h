@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/25 17:22:23 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/25 19:30:36 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <math.h>
 # include "mlx/mlx.h"
 # include "libft/libft.h"
 
@@ -121,8 +122,16 @@ void		init(t_map *list, char **av);
 void		init_ray(t_map *map);
 
 //RAYCAST.c
+void		pixel_put3(t_map *map, int x, int color);
+int    		test_loop(t_map *map);
+void    	op_vector(t_map *map);
 
 //ACTION_RAY.c
+int			action_ray_game(int key, t_map *map);
+void		player_ray_up(t_map *map);
+void		player_ray_down(t_map *map);
+void		player_ray_left(t_map *map);
+void		player_ray_right(t_map *map);
 
 //PARSE.c
 char		**init_tab(int fd);
@@ -138,6 +147,5 @@ void		find_player(t_map *map);
 void		if_green(t_map *map);
 
 //------------TEST-----------------//
-
 
 #endif

@@ -6,12 +6,12 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/01/25 17:15:57 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/01/25 19:30:40 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = Cub3d
-SRCS = main.c src/error.c src/parse.c src/print_map.c src/init.c src/close.c src/action.c src/utils.c src/action_ray.c
+SRCS = main.c src/error.c src/parse.c src/print_map.c src/init.c src/close.c src/action.c src/utils.c src/action_ray.c src/raycast.c
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -g
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
@@ -30,7 +30,7 @@ _GREEN  =   $'\x1b[32m
 $(NAME): $(OBJS) 
 	@$(MAKE) -C libft/
 	@$(MAKE) -C mlx/
-	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX)
+	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX) $(CHECK)
 	echo "$(_RED)Compilation Cub3d en cours...$(_END)"
 	echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 
