@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:13:25 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/25 17:28:10 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/26 16:43:55 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 void	if_green(t_map *map)
 {
 	find_player(map);
+	map->ray.posX = (double)map->playX;
+	map->ray.posY = (double)map->playY;
+	
 	return ;
 }
 

@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/01/25 19:30:40 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/01/26 17:17:43 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ _GREEN  =   $'\x1b[32m
 $(NAME): $(OBJS) 
 	@$(MAKE) -C libft/
 	@$(MAKE) -C mlx/
-	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX) $(CHECK)
+	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX)
 	echo "$(_RED)Compilation Cub3d en cours...$(_END)"
 	echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 

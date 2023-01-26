@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/25 19:23:24 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/26 18:03:27 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,15 @@
 
 int	test_loop(t_map *map)
 {
-	printf("posX = %d\n", map->playX);
-	printf("posY = %d\n", map->playY);
-	map->ray.posX = map->playX;
-	map->ray.posY = map->playY;
 	op_vector(map);
+	//mlx_clear_window(map->mlx, map->win);
 	return (0);
 }
 
 void	pixel_put3(t_map *map, int x, int color)
 {
 	int y;
+
 
 	y = map->ray.drawstart;
 	while (y <= map->ray.drawend)
@@ -54,6 +52,8 @@ void    op_vector(t_map *map)
 
 		map->ray.deltadistX = fabs(1 / map->ray.raydirX);
 		map->ray.deltadistY = fabs(1 / map->ray.raydirY);
+		//map->ray.deltadistX = sqrt(1 + pow(map->ray.raydirY, 2) / pow(map->ray.dirX, 2));
+		//map->ray.deltadistY = sqrt(1 + pow(map->ray.raydirX, 2) / pow(map->ray.dirY, 2));
 
 		if (map->ray.raydirX < 0)
 		{
@@ -66,7 +66,7 @@ void    op_vector(t_map *map)
 			map->ray.sidedistX = (map->playX + 1.0 - map->ray.posX) * map->ray.deltadistX;
 		}
 		//-----------------------------//
-		if (map->ray.deltadistY < 0)
+		if (map->ray.raydirY < 0)
 		{
 			map->ray.stepY = -1;
 			map->ray.sidedistY = (map->ray.posY - map->playY) * map->ray.deltadistY;
@@ -96,9 +96,14 @@ void    op_vector(t_map *map)
 		}
 		//--------------------------//
 		if (map->ray.side == 0)
-			map->ray.distwallP = (map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX;
+			map->ray.distwallP = fabs((map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX);
+			//map->ray.distwallP = (map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX;
 		else
-			map->ray.distwallP = (map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY;
+			map->ray.distwallP = fabs((map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY);
+			//map->ray.distwallP = (map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY;
+		//-------TEST----------------//
+		if(!map->ray.distwallP)
+			map->ray.distwallP = 1;
 		//---------DRAW-------------//
 		map->ray.lineheight = (int)(height / map->ray.distwallP);
 		map->ray.drawstart = -map->ray.lineheight / 2 + height / 2;
@@ -107,11 +112,12 @@ void    op_vector(t_map *map)
 		map->ray.drawend = map->ray.lineheight / 2 + height / 2;
 		if ( map->ray.drawend >= height)
 			map->ray.drawend = height - 1;
+			
 		//--------COLOR--------//
-		if (tmp[map->playX][map->playY] == 1)
+		if (tmp[map->playY][map->playX] == '1')
 			color = GREY;
 		else 
-			color = 0xFFFF00;
+			color = WHITE;
 
 		if (map->ray.side == 1)
 			color = color / 2;
