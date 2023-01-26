@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/26 18:03:27 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/26 20:27:55 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,5 +124,6 @@ void    op_vector(t_map *map)
 		
 		pixel_put3(map, x, color);
 		x++;
+		mlx_clear_window(map->mlx, map->win);
 	}
 }

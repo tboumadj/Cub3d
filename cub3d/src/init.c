@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:07 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/26 18:01:13 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/26 20:27:13 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	init_ray(t_map *map)
 	map->moveSpeed = 0.2;
 	map->rotSpeed = 0.2;
 	//------------------
-	map->ray.dirX = 1;
+	map->ray.dirX = -1;
 	map->ray.dirY = 0;
 	map->ray.planX = 0;
 	map->ray.planY = 0.66;
