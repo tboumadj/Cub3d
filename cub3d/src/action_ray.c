@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:14:52 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/26 17:44:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/27 14:39:05 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,34 @@ int	action_ray_game(int key, t_map *map)
 
 void	player_ray_up(t_map *map)
 {
+	/*
 	if (!map->map[(int)(map->ray.posX + map->ray.dirX * map->moveSpeed)][(int)(map->ray.posY)])
 	{
 		map->ray.posX += map->ray.dirX * map->moveSpeed;
-		//map->playX = (int)map->ray.posX;
+		printf("posX move = %f\n", map->ray.posX);
 	}
 	if (!map->map[(int)(map->ray.posX)][(int)(map->ray.posY + map->ray.dirY * map->moveSpeed)])
 	{
 		map->ray.posY += map->ray.dirY * map->moveSpeed;
-		//map->playY = (int)map->ray.posY;
+		printf("posX move = %f\n", map->ray.posX);
 	}
 	//put_pix(map);
+	*/
+	if (map->map[(int)(map->ray.posX + map->ray.dirX)][(int)(map->ray.posY + map->ray.dirY)] == '0')
+	{
+		map->ray.posX += map->ray.dirX * map->moveSpeed;
+		map->ray.posY += map->ray.dirY * map->moveSpeed;
+		printf("posX move = %f\n", map->ray.posX);
+		printf("posY move = %f\n", map->ray.posY);
+		map->map[(int)map->ray.posX][(int)map->ray.posY] = 'N';
+		map->map[(int)map->playX][(int)map->playY] = '0';
+		put_pix(map);
+	}
 }
 
 void	player_ray_down(t_map *map)
 {
+	/*
 	if (!map->map[(int)(map->ray.posX - map->ray.dirX * map->moveSpeed)][(int)(map->ray.posY)])
 	{
 		map->ray.posX -= map->ray.dirX * map->moveSpeed;
@@ -55,6 +68,17 @@ void	player_ray_down(t_map *map)
 		//map->playY = (int)map->ray.posY;
 	}
 	//put_pix(map);
+	*/
+	if (map->map[(int)(map->ray.posX - map->ray.dirX)][(int)(map->ray.posY - map->ray.dirY)] == '0')
+	{
+		map->ray.posX -= map->ray.dirX * map->moveSpeed;
+		map->ray.posY -= map->ray.dirY * map->moveSpeed;
+		printf("posX move = %f\n", map->ray.posX);
+		printf("posY move = %f\n", map->ray.posY);
+		map->map[(int)map->ray.posX][(int)map->ray.posY] = 'S';
+		map->map[(int)map->playX][(int)map->playY] = '0';
+		put_pix(map);
+	}
 }
 
 void	player_ray_left(t_map *map)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/26 20:27:55 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/01/27 14:48:41 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	test_loop(t_map *map)
 {
 	op_vector(map);
-	//mlx_clear_window(map->mlx, map->win);
 	return (0);
 }
 
@@ -50,10 +49,10 @@ void    op_vector(t_map *map)
 		map->playX = (int)map->ray.posX;
 		map->playY = (int)map->ray.posY;
 
-		map->ray.deltadistX = fabs(1 / map->ray.raydirX);
-		map->ray.deltadistY = fabs(1 / map->ray.raydirY);
-		//map->ray.deltadistX = sqrt(1 + pow(map->ray.raydirY, 2) / pow(map->ray.dirX, 2));
-		//map->ray.deltadistY = sqrt(1 + pow(map->ray.raydirX, 2) / pow(map->ray.dirY, 2));
+		//map->ray.deltadistX = fabs(1 / map->ray.raydirX);
+		//map->ray.deltadistY = fabs(1 / map->ray.raydirY);
+		map->ray.deltadistX = sqrt(1 + pow(map->ray.raydirY, 2) / pow(map->ray.dirX, 2));
+		map->ray.deltadistY = sqrt(1 + pow(map->ray.raydirX, 2) / pow(map->ray.dirY, 2));
 
 		if (map->ray.raydirX < 0)
 		{
@@ -91,7 +90,7 @@ void    op_vector(t_map *map)
 				map->playY += map->ray.stepY;
 				map->ray.side = 1;
 			}
-			if (tmp[map->playX][map->playY] > 0)
+			if (tmp[map->playX][map->playY] > '0')
 				map->ray.hit = 1;
 		}
 		//--------------------------//
@@ -114,7 +113,7 @@ void    op_vector(t_map *map)
 			map->ray.drawend = height - 1;
 			
 		//--------COLOR--------//
-		if (tmp[map->playY][map->playX] == '1')
+		if (tmp[map->playX][map->playY] == '1')
 			color = GREY;
 		else 
 			color = WHITE;
@@ -124,6 +123,6 @@ void    op_vector(t_map *map)
 		
 		pixel_put3(map, x, color);
 		x++;
-		mlx_clear_window(map->mlx, map->win);
+	mlx_clear_window(map->mlx, map->win);
 	}
 }
