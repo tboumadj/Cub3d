@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:14:52 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/27 14:39:05 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:29:23 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	player_ray_up(t_map *map)
 		printf("posY move = %f\n", map->ray.posY);
 		map->map[(int)map->ray.posX][(int)map->ray.posY] = 'N';
 		map->map[(int)map->playX][(int)map->playY] = '0';
-		put_pix(map);
+		put_pix2(map);
 	}
 }
 
@@ -77,7 +77,7 @@ void	player_ray_down(t_map *map)
 		printf("posY move = %f\n", map->ray.posY);
 		map->map[(int)map->ray.posX][(int)map->ray.posY] = 'S';
 		map->map[(int)map->playX][(int)map->playY] = '0';
-		put_pix(map);
+		put_pix2(map);
 	}
 }
 

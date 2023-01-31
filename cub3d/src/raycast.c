@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/27 14:48:41 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/01/31 16:27:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,8 @@ void    op_vector(t_map *map)
 		if (map->ray.side == 1)
 			color = color / 2;
 		
-		pixel_put3(map, x, color);
+		//pixel_put3(map, x, color);
 		x++;
-	mlx_clear_window(map->mlx, map->win);
+	//mlx_clear_window(map->mlx, map->win);
 	}
 }
