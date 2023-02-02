@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/01 15:53:16 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:10:47 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void    init(t_map *map, char **argv)
 	map->len = 0;
     init_map(map, argv);
 
-    /*map->mlx = mlx_init();
-	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
-	mlx_new_image(map->mlx, width, height);*/
+    //map->mlx = mlx_init();
+	//map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
+	//mlx_new_image(map->mlx, width, height);
 	return ;
 }
 
