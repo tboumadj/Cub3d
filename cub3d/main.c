@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 	//mlx_loop(map.mlx);
 	int i = 0;
 	while (map.map[i])
-		printf("%s", map.map[i++]);
+		printf("map= %s", map.map[i++]);
 	printf("\n");
 	free_exit(&map);
 	return 0;

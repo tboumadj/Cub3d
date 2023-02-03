@@ -24,7 +24,8 @@ SRCS 		= ft_pourcentdi.c \
 				get_next_line_utils.c \
 				get_next_line.c \
 				ft_atoi.c \
-				ft_itoa.c 
+				ft_itoa.c \
+				ft_strncmp.c
 
 
 OBJS	= $(SRCS:%.c=%.o)

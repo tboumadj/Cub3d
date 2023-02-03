@@ -42,24 +42,27 @@ void	init_map(t_map *map, char **argv)
 void	extract_map(t_map *map, char **argv, int len)
 {
 	int 	i;
+	int		c;
 	char	*tmp;
 
 	map->fd = open(argv[1], O_RDONLY);
 	if (map->fd == -1)
 		exit(EXIT_FAILURE);
 	i = 0;
+	c = 0;
 	map->map = malloc(sizeof(char *) * len);
 	if (!map->map)
 		return ;
 	while (i < len -1)
 	{
 		tmp = get_next_line(map->fd);
+		c++;
 		if (tmp == NULL)
 			{
 				free (tmp);
 				break ;
 			}
-		if (tmp[0] == '1')
+		if (c > 7 && find_cmp(tmp, '1') == 1)
 		{
 			map->map[i] = tmp;
 			while (i < len - 1)

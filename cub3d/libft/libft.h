@@ -52,5 +52,6 @@ int			ft_strint(int nb);
 //------------LIBFT------------------------//
 int			ft_atoi(const char *str);
 char		*ft_itoa(int n);
+int	        ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

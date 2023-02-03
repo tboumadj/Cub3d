@@ -41,3 +41,17 @@ void	find_player(t_map *map)
 		}
 	}
 }
+
+int	find_cmp(char *str1, char c)
+{
+	int	i;
+
+	i = 0;
+	while (str1[i])
+	{
+		if (str1[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
