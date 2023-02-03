@@ -113,7 +113,7 @@ void    op_vector(t_map *map)
 			map->ray.drawend = height - 1;
 			
 		//--------COLOR--------//
-		if (tmp[map->playX][map->playY] == '1')
+		if (tmp[map->playY][map->playX] == '1')
 			color = GREY;
 		else 
 			color = WHITE;
@@ -121,8 +121,8 @@ void    op_vector(t_map *map)
 		if (map->ray.side == 1)
 			color = color / 2;
 		
-		//pixel_put3(map, x, color);
+		pixel_put3(map, x, color);
 		x++;
-	//mlx_clear_window(map->mlx, map->win);
+	mlx_clear_window(map->mlx, map->win);
 	}
 }

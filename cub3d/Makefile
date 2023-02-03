@@ -13,7 +13,7 @@
 NAME = Cub3d
 SRCS = main.c src/error.c src/parse.c src/print_map.c src/free.c src/init.c src/close.c src/action.c src/utils.c src/action_ray.c src/raycast.c
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -g ##-Ofast -march=native
+FLAGS = -Wall -Wextra -Werror ##-g ##-Ofast -march=native
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
 RM = rm -f
 CHECK = -fsanitize=address
@@ -30,7 +30,7 @@ _GREEN  =   $'\x1b[32m
 $(NAME): $(OBJS) 
 	@$(MAKE) -C libft/
 	@$(MAKE) -C mlx/
-	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX) $(CHECK)
+	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX)
 	echo "$(_RED)Compilation Cub3d en cours...$(_END)"
 	echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 

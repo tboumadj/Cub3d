@@ -24,9 +24,11 @@ void    init(t_map *map, char **argv)
 	map->len = 0;
     init_map(map, argv);
 
-    //map->mlx = mlx_init();
-	//map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
-	//mlx_new_image(map->mlx, width, height);
+    map->mlx = mlx_init();
+	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
+	mlx_new_image(map->mlx, width, height);
+	find_player(map);
+	init_ray(map);
 	return ;
 }
 
