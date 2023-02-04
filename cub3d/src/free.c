@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 12:32:01 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/01 15:51:40 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/04 03:04:09 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_exit(t_map *map)
 	int i;
 
 	i = 0;
-	if (map->map)
+	if (map->map != NULL)
 	{
 		while (map->map[i])
 		{
@@ -27,9 +27,9 @@ void	free_exit(t_map *map)
 		free(map->map);
 		i = 0;
 	}
-	if (map->text)
+	if (map->text != NULL)
 	{
-		while (i < 8)
+		while (i < 7)
 		{
 			free(map->text[i]);
 			i++;

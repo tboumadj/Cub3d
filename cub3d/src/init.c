@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/02 16:10:47 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/04 03:07:45 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ void    init(t_map *map, char **argv)
 	map->text = NULL;
 	map->len = 0;
     init_map(map, argv);
-
-    map->mlx = mlx_init();
-	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
-	mlx_new_image(map->mlx, width, height);
 	find_player(map);
+//-----------------------------------
+    //map->mlx = mlx_init();
+	//map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
+	//mlx_new_image(map->mlx, width, height);
 	init_ray(map);
 	return ;
 }
@@ -41,8 +41,8 @@ void	init_ray(t_map *map)
 	map->ray.dirY = 0;
 	map->ray.planX = 0;
 	map->ray.planY = 0.66;
-	map->ray.posX = (double)map->playX; //test
-	map->ray.posY = (double)map->playY; //test
+	map->ray.posX = (double)map->playX;
+	map->ray.posY = (double)map->playY;
 	//-------------------
 	map->ray.cameraX = 0;
 	map->ray.raydirX = 0;

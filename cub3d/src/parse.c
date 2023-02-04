@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:33:18 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/02 16:05:25 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:56:23 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ void	init_map(t_map *map, char **argv)
 	map->text = malloc(sizeof(char *) * 8);
 	if (!map->text)
 		return ;
-	while (++i < 8)
+	while (++i < 7)
 		map->text[i] = get_next_line(map->fd);
+	map->text[i] = NULL;
 	while (1)
 	{
 		tmp = get_next_line(map->fd);

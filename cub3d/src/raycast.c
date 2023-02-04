@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/31 16:27:46 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:46:02 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ void    op_vector(t_map *map)
 			map->ray.drawend = height - 1;
 			
 		//--------COLOR--------//
-		if (tmp[map->playY][map->playX] == '1')
+		if (tmp[map->playX][map->playY] == '1')
 			color = GREY;
 		else 
 			color = WHITE;

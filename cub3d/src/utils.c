@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:13:25 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/31 15:07:35 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/04 03:06:32 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	find_player(t_map *map)
 	int	a;
 	int	b;
 
-	a = 7;
+	a = -1;
 	while (map->map[++a])
 	{
 		b = -1;
