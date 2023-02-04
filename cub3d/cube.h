@@ -137,6 +137,7 @@ void		player_ray_right(t_map *map);
 
 //PARSE.c
 void		init_map(t_map *map, char **argv);
+void		extract_map(t_map *map, char **argv, int len);
 
 //FREE.c
 void		free_exit(t_map *map);
@@ -154,6 +155,5 @@ int			find_cmp(char *str1, char c);
 
 //------------TEST-----------------//
 void		pixel_player(t_map *map, int x, int y, int color);
-void		extract_map(t_map *map, char **argv, int len);
 
 #endif

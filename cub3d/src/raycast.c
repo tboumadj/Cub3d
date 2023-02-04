@@ -113,7 +113,7 @@ void    op_vector(t_map *map)
 			map->ray.drawend = height - 1;
 			
 		//--------COLOR--------//
-		if (tmp[map->playX][map->playY] == '1')
+		if (tmp[map->playY][map->playX] == '1')
 			color = GREY;
 		else 
 			color = WHITE;

@@ -11,7 +11,17 @@
 # **************************************************************************** #
 
 NAME = Cub3d
-SRCS = main.c src/error.c src/parse.c src/print_map.c src/free.c src/init.c src/close.c src/action.c src/utils.c src/action_ray.c src/raycast.c
+SRCS = main.c \
+		src/error.c \
+		src/parse.c \
+		src/print_map.c \
+		src/free.c \
+		src/init.c \
+		src/close.c \
+		src/action.c \
+		src/utils.c \
+		src/action_ray.c \
+		src/raycast.c
 CC = gcc
 FLAGS = -Wall -Wextra -Werror ##-g ##-Ofast -march=native
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit

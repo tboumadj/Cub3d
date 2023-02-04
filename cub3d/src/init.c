@@ -25,10 +25,10 @@ void    init(t_map *map, char **argv)
     init_map(map, argv);
 	find_player(map);
 //-----------------------------------
-    //map->mlx = mlx_init();
-	//map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
-	//mlx_new_image(map->mlx, width, height);
-	init_ray(map);
+    /*map->mlx = mlx_init();
+	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
+	mlx_new_image(map->mlx, width, height);
+	init_ray(map);*/
 	return ;
 }
 
