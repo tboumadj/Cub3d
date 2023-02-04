@@ -31,6 +31,14 @@ void	reset_val(t_map *map, int color)
 	color = 0;
 }
 
+void	my_mlx_pixel(t_map *map, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = map->addr + (y * map->line_length + x * (map->bits_per_pixel / 8));
+	*(unsigned int *)dst = color;
+}
+
 int	test_loop(t_map *map)
 {
 	op_vector(map);
@@ -46,6 +54,7 @@ void	pixel_put3(t_map *map, int x, int color)
 	while (y <= map->ray.drawend)
 	{
 		mlx_pixel_put(map->mlx, map->win, x, y, color);
+		//my_mlx_pixel(map, x, y, color);
 		y++;
 	}
 }
@@ -142,6 +151,7 @@ void    op_vector(t_map *map)
 			color = color / 2;
 		
 		pixel_put3(map, x, color);
+
 		x++;
 	mlx_clear_window(map->mlx, map->win);
 	}

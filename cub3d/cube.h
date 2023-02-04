@@ -96,7 +96,11 @@ typedef struct s_map
 	double	rotSpeed; //-vitesse rotation joueur
 	t_texture texture;
 	t_ray	ray;
-
+	void		*img;
+	char		*addr;
+	int			bits_per_pixel;
+	int			line_length;
+	int			endian;
 } t_map;
 
 
@@ -156,5 +160,6 @@ int			find_cmp(char *str1, char c);
 //------------TEST-----------------//
 void		pixel_player(t_map *map, int x, int y, int color);
 void		reset_val(t_map *map, int color);
+void		my_mlx_pixel(t_map *map, int x, int y, int color);
 
 #endif

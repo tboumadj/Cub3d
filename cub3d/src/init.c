@@ -27,7 +27,9 @@ void    init(t_map *map, char **argv)
 //-----------------------------------
     map->mlx = mlx_init();
 	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
-	mlx_new_image(map->mlx, width, height);
+	map->img = mlx_new_image(map->mlx, width, height);
+	map->addr = mlx_get_data_addr(map->img, &map->bits_per_pixel, &map->line_length, &map->endian);
+	//mlx_new_image(map->mlx, width, height);
 	init_ray(map);
 	return ;
 }
