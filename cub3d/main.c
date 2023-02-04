@@ -36,10 +36,10 @@ int main(int argc, char **argv)
 		printf("%s", map.text[i++]);
 	printf("\n");
 	//-----------------------------------
-	/*mlx_loop_hook(map.mlx, &test_loop, &map);
+	mlx_loop_hook(map.mlx, &test_loop, &map);
 	mlx_hook(map.win, 2, 1L << 0, action_ray_game, &map);
 	mlx_hook(map.win, 17, 1L << 17, ft_close, &map);
-	mlx_loop(map.mlx);*/
+	mlx_loop(map.mlx);
 	free_exit(&map);
 	return 0;
 }

@@ -25,24 +25,24 @@ void    init(t_map *map, char **argv)
     init_map(map, argv);
 	find_player(map);
 //-----------------------------------
-    /*map->mlx = mlx_init();
+    map->mlx = mlx_init();
 	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
 	mlx_new_image(map->mlx, width, height);
-	init_ray(map);*/
+	init_ray(map);
 	return ;
 }
 
 void	init_ray(t_map *map)
 {
-	map->moveSpeed = 0.2;
-	map->rotSpeed = 0.2;
+	map->moveSpeed = 0.3;
+	map->rotSpeed = 0.3;
 	//------------------
 	map->ray.dirX = -1;
 	map->ray.dirY = 0;
 	map->ray.planX = 0;
 	map->ray.planY = 0.66;
-	map->ray.posX = (double)map->playX;
-	map->ray.posY = (double)map->playY;
+	map->ray.posX = map->playX;
+	map->ray.posY = map->playY;
 	//-------------------
 	map->ray.cameraX = 0;
 	map->ray.raydirX = 0;

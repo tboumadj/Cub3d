@@ -12,6 +12,25 @@
 
 #include "../cube.h"
 
+void	reset_val(t_map *map, int color)
+{
+	map->ray.cameraX = 0;
+	map->ray.raydirX = 0;
+	map->ray.raydirY = 0;
+	map->ray.sidedistX = 0;
+	map->ray.sidedistY = 0;
+	map->ray.deltadistX = 0;
+	map->ray.distwallP = 0;
+	map->ray.stepX = 0;
+	map->ray.stepY = 0;
+	map->ray.hit = 0;
+	map->ray.side = 0;
+	map->ray.lineheight = 0;
+	map->ray.drawstart = 0;
+	map->ray.drawend = 0;
+	color = 0;
+}
+
 int	test_loop(t_map *map)
 {
 	op_vector(map);
@@ -35,24 +54,25 @@ void    op_vector(t_map *map)
 {
 	int	x;
 	int	color;
-	char **tmp;
 	
 	x = 0;
 	color = 0;
-	tmp = map->map;
 	while (x < width)
 	{
+		reset_val(map, color);
 		map->ray.cameraX = 2 * x / (double)width - 1;
 		map->ray.raydirX = map->ray.dirX + map->ray.planX * map->ray.cameraX;
 		map->ray.raydirY = map->ray.dirY + map->ray.planY * map->ray.cameraX;
 
 		map->playX = (int)map->ray.posX;
 		map->playY = (int)map->ray.posY;
+		//printf("playX = %d", map->playX);
+		//printf("playY = %d", map->playY);
 
-		//map->ray.deltadistX = fabs(1 / map->ray.raydirX);
-		//map->ray.deltadistY = fabs(1 / map->ray.raydirY);
-		map->ray.deltadistX = sqrt(1 + pow(map->ray.raydirY, 2) / pow(map->ray.dirX, 2));
-		map->ray.deltadistY = sqrt(1 + pow(map->ray.raydirX, 2) / pow(map->ray.dirY, 2));
+		map->ray.deltadistX = fabs(1 / map->ray.raydirX);
+		map->ray.deltadistY = fabs(1 / map->ray.raydirY);
+		//map->ray.deltadistX = sqrt(1 + pow(map->ray.raydirY, 2) / pow(map->ray.dirX, 2));
+		//map->ray.deltadistY = sqrt(1 + pow(map->ray.raydirX, 2) / pow(map->ray.dirY, 2));
 
 		if (map->ray.raydirX < 0)
 		{
@@ -90,16 +110,16 @@ void    op_vector(t_map *map)
 				map->playY += map->ray.stepY;
 				map->ray.side = 1;
 			}
-			if (tmp[map->playX][map->playY] > '0')
+			if (map->map[map->playX][map->playY] > '0')
 				map->ray.hit = 1;
 		}
 		//--------------------------//
 		if (map->ray.side == 0)
-			map->ray.distwallP = fabs((map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX);
-			//map->ray.distwallP = (map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX;
+			//map->ray.distwallP = fabs((map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX);
+			map->ray.distwallP = (map->playX - map->ray.posX + (1 - map->ray.stepX) / 2) / map->ray.raydirX;
 		else
-			map->ray.distwallP = fabs((map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY);
-			//map->ray.distwallP = (map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY;
+			//map->ray.distwallP = fabs((map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY);
+			map->ray.distwallP = (map->playY - map->ray.posY + (1 - map->ray.stepY) / 2) / map->ray.raydirY;
 		//-------TEST----------------//
 		if(!map->ray.distwallP)
 			map->ray.distwallP = 1;
@@ -113,7 +133,7 @@ void    op_vector(t_map *map)
 			map->ray.drawend = height - 1;
 			
 		//--------COLOR--------//
-		if (tmp[map->playY][map->playX] == '1')
+		if (map->map[map->playY][map->playX] == '1')
 			color = GREY;
 		else 
 			color = WHITE;

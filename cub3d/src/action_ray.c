@@ -29,19 +29,18 @@ int	action_ray_game(int key, t_map *map)
 
 void	player_ray_up(t_map *map)
 {
-	/*
-	if (!map->map[(int)(map->ray.posX + map->ray.dirX * map->moveSpeed)][(int)(map->ray.posY)])
+	if (map->map[(int)(map->ray.posX + map->ray.dirX * map->moveSpeed)][(int)(map->ray.posY)])
 	{
 		map->ray.posX += map->ray.dirX * map->moveSpeed;
-		printf("posX move = %f\n", map->ray.posX);
+		//printf("posX move = %f\n", map->ray.posX);
 	}
-	if (!map->map[(int)(map->ray.posX)][(int)(map->ray.posY + map->ray.dirY * map->moveSpeed)])
+	if (map->map[(int)(map->ray.posX)][(int)(map->ray.posY + map->ray.dirY * map->moveSpeed)])
 	{
 		map->ray.posY += map->ray.dirY * map->moveSpeed;
-		printf("posX move = %f\n", map->ray.posX);
+		//printf("posX move = %f\n", map->ray.posX);
 	}
 	//put_pix(map);
-	*/
+	/*
 	if (map->map[(int)(map->ray.posX + map->ray.dirX)][(int)(map->ray.posY + map->ray.dirY)] == '0')
 	{
 		map->ray.posX += map->ray.dirX * map->moveSpeed;
@@ -51,24 +50,24 @@ void	player_ray_up(t_map *map)
 		map->map[(int)map->ray.posX][(int)map->ray.posY] = 'N';
 		map->map[(int)map->playX][(int)map->playY] = '0';
 		//put_pix2(map);
-	}
+	}*/
 }
 
 void	player_ray_down(t_map *map)
 {
-	/*
-	if (!map->map[(int)(map->ray.posX - map->ray.dirX * map->moveSpeed)][(int)(map->ray.posY)])
+	
+	if (map->map[(int)(map->ray.posX - map->ray.dirX * map->moveSpeed)][(int)(map->ray.posY)])
 	{
 		map->ray.posX -= map->ray.dirX * map->moveSpeed;
 		//map->playX = (int)map->ray.posX;
 	}
-	if (!map->map[(int)(map->ray.posX)][(int)(map->ray.posY - map->ray.dirY * map->moveSpeed)])
+	if (map->map[(int)(map->ray.posX)][(int)(map->ray.posY - map->ray.dirY * map->moveSpeed)])
 	{
 		map->ray.posY -= map->ray.dirY * map->moveSpeed;
 		//map->playY = (int)map->ray.posY;
 	}
 	//put_pix(map);
-	*/
+	/*
 	if (map->map[(int)(map->ray.posX - map->ray.dirX)][(int)(map->ray.posY - map->ray.dirY)] == '0')
 	{
 		map->ray.posX -= map->ray.dirX * map->moveSpeed;
@@ -78,10 +77,10 @@ void	player_ray_down(t_map *map)
 		map->map[(int)map->ray.posX][(int)map->ray.posY] = 'S';
 		map->map[(int)map->playX][(int)map->playY] = '0';
 		//put_pix2(map);
-	}
+	}*/
 }
 
-void	player_ray_left(t_map *map)
+void	player_ray_right(t_map *map)
 {
 	double oldDirX = map->ray.dirX;
 	map->ray.dirX = map->ray.dirX * cos(-map->rotSpeed) - map->ray.dirY * sin(-map->rotSpeed);
@@ -91,7 +90,7 @@ void	player_ray_left(t_map *map)
 	map->ray.planY = oldPlanX * sin(-map->rotSpeed) + map->ray.planY * cos(-map->rotSpeed);
 }
 
-void	player_ray_right(t_map *map)
+void	player_ray_left(t_map *map)
 {
 	double oldDirX = map->ray.dirX;
 	map->ray.dirX = map->ray.dirX * cos(map->rotSpeed) - map->ray.dirY * sin(map->rotSpeed);

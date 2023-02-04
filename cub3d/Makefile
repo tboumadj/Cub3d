@@ -23,8 +23,8 @@ SRCS = main.c \
 		src/action_ray.c \
 		src/raycast.c
 CC = gcc
-FLAGS = -Wall -Wextra -Werror ##-g ##-Ofast -march=native
-MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
+FLAGS = -Wall -Wextra -Werror -Ofast -march=native
+MLX	= -lmlx -framework OpenGl -framework AppKit
 RM = rm -f
 CHECK = -fsanitize=address
 HEADER = cube.h

@@ -155,5 +155,6 @@ int			find_cmp(char *str1, char c);
 
 //------------TEST-----------------//
 void		pixel_player(t_map *map, int x, int y, int color);
+void		reset_val(t_map *map, int color);
 
 #endif
