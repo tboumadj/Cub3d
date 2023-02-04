@@ -12,15 +12,6 @@
 
 #include "../cube.h"
 
-void	if_green(t_map *map)
-{
-	find_player(map);
-	map->ray.posX = (double)map->playX;
-	map->ray.posY = (double)map->playY;
-	
-	return ;
-}
-
 void	find_player(t_map *map)
 {
 	int	a;

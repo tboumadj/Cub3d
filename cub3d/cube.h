@@ -154,7 +154,6 @@ void		pixel_square2(t_map *map, int x, int y, int color);
 
 //UTILS.c
 void		find_player(t_map *map);
-void		if_green(t_map *map);
 int			find_cmp(char *str1, char c);
 
 //------------TEST-----------------//
