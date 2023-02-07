@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:14:52 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/04 03:02:12 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/07 16:39:34 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 
 int	action_ray_game(int key, t_map *map)
 {
+	mlx_destroy_image(map->mlx, map->img);
+	map->img = mlx_new_image(map->mlx, width, height);
+	map->addr = mlx_get_data_addr(map->img, &map->bits_per_pixel, &map->line_length, &map->endian);
+	//mlx_clear_window(map->mlx, map->win);
 	if (key == UP)
 		player_ray_up(map);
 	if (key == DOWN)
@@ -24,6 +28,7 @@ int	action_ray_game(int key, t_map *map)
 		player_ray_right(map);
 	if (key == ECHAP)
 		ft_close(map);
+	op_vector(map);
 	return (0);
 }
 

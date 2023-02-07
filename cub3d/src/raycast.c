@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/07 06:25:35 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/07 16:36:51 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ void	pixel_put3(t_map *map, int x, int color)
 	y = map->ray.drawstart;
 	while (y <= map->ray.drawend)
 	{
-		mlx_pixel_put(map->mlx, map->win, x, y, color);
-		//my_mlx_pixel(map, x, y, color);
+		//mlx_pixel_put(map->mlx, map->win, x, y, color);
+		my_mlx_pixel(map, x, y, color);
 		y++;
 	}
+	//mlx_clear_window(map->mlx, map->win);
+	mlx_put_image_to_window(map->mlx, map->win, map->img, 0, 0);
 }
 
 void    op_vector(t_map *map)
@@ -74,8 +76,8 @@ void    op_vector(t_map *map)
 
 		map->playX = (int)map->ray.posX;
 		map->playY = (int)map->ray.posY;
-		//printf("playX = %d", map->playX);
-		//printf("playY = %d", map->playY);
+		printf("playX = %d", map->playX);
+		printf("playY = %d", map->playY);
 
 		map->ray.deltadistX = fabs(1 / map->ray.raydirX);
 		map->ray.deltadistY = fabs(1 / map->ray.raydirY);
@@ -150,8 +152,9 @@ void    op_vector(t_map *map)
 			color = color / 2;
 		
 		pixel_put3(map, x, color);
-
+		
 		x++;
-	mlx_clear_window(map->mlx, map->win);
+		//mlx_clear_window(map->mlx, map->win);
 	}
+	mlx_put_image_to_window(map->mlx, map->win, map->img, 0, 0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/07 06:17:26 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/07 16:04:59 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,14 +102,6 @@ typedef struct s_map
 	int			line_length;
 	int			endian;
 } t_map;
-
-
-//ACTION.c
-int			action_game(int key, t_map *map);
-void		player_up(t_map *map);
-void		player_down(t_map *map);
-void		player_left(t_map *map);
-void		player_right(t_map *map);
 
 //CLOSE.c
 int			ft_close(t_map *map);

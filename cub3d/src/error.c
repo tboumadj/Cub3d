@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:45:28 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/20 15:38:20 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/07 16:05:36 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	verif_char(char **str)
 	}
 	return (0);
 }
+
+//-------------------------------------//
 
 void	exit_error(char *str)
 {
