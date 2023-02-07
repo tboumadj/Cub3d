@@ -6,13 +6,13 @@
 /*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/04 02:46:02 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/07 06:25:35 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cube.h"
 
-void	reset_val(t_map *map, int color)
+void	reset_val(t_map *map)
 {
 	map->ray.cameraX = 0;
 	map->ray.raydirX = 0;
@@ -28,7 +28,6 @@ void	reset_val(t_map *map, int color)
 	map->ray.lineheight = 0;
 	map->ray.drawstart = 0;
 	map->ray.drawend = 0;
-	color = 0;
 }
 
 void	my_mlx_pixel(t_map *map, int x, int y, int color)
@@ -68,7 +67,7 @@ void    op_vector(t_map *map)
 	color = 0;
 	while (x < width)
 	{
-		reset_val(map, color);
+		reset_val(map);
 		map->ray.cameraX = 2 * x / (double)width - 1;
 		map->ray.raydirX = map->ray.dirX + map->ray.planX * map->ray.cameraX;
 		map->ray.raydirY = map->ray.dirY + map->ray.planY * map->ray.cameraX;
@@ -142,7 +141,7 @@ void    op_vector(t_map *map)
 			map->ray.drawend = height - 1;
 			
 		//--------COLOR--------//
-		if (map->map[map->playY][map->playX] == '1')
+		if (map->map[map->playX][map->playY] == '1')
 			color = GREY;
 		else 
 			color = WHITE;

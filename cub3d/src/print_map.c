@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:32 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/01/31 16:33:41 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/07 06:18:40 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ void	pixel_square(t_map *map, int x, int y, int color)
 
 	tmp = x;
 	j = 0;
-	if (color == GREEN)
-		if_green(map);
 	while (j < 5)
 	{
 		i = 0;

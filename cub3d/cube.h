@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/01 15:16:10 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/07 06:17:26 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ int			find_cmp(char *str1, char c);
 
 //------------TEST-----------------//
 void		pixel_player(t_map *map, int x, int y, int color);
-void		reset_val(t_map *map, int color);
+void		reset_val(t_map *map);
 void		my_mlx_pixel(t_map *map, int x, int y, int color);
 
 #endif
