@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/07 16:37:21 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/08 18:15:09 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror -Ofast -march=native
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
 RM = rm -f
-CHECK = -fsanitize=address
+CHECK = -fsanitize=leak
 HEADER = cube.h
 OBJS = $(SRCS:.c=.o)
 

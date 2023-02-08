@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 16:00:05 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/01 14:51:34 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:52:50 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	ft_close(t_map *map)
 {
 	mlx_destroy_window(map->mlx, map->win);
+	if(map->img)
+		mlx_destroy_image(map->mlx, map->img);
 	free_exit(map);
 	exit(EXIT_SUCCESS);
 	return (0);

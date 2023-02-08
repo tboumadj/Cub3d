@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/07 16:36:51 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/08 16:45:36 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ void    op_vector(t_map *map)
 
 		map->playX = (int)map->ray.posX;
 		map->playY = (int)map->ray.posY;
-		printf("playX = %d", map->playX);
-		printf("playY = %d", map->playY);
+		//printf("playX = %d", map->playX);
+		//printf("playY = %d", map->playY);
 
 		map->ray.deltadistX = fabs(1 / map->ray.raydirX);
 		map->ray.deltadistY = fabs(1 / map->ray.raydirY);
