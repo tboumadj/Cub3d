@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/08 16:45:36 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:59:13 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	my_mlx_pixel(t_map *map, int x, int y, int color)
 
 int	test_loop(t_map *map)
 {
+	print_c(map);
+	print_f(map);
 	op_vector(map);
 	return (0);
 }
@@ -120,7 +122,7 @@ void    op_vector(t_map *map)
 				map->playY += map->ray.stepY;
 				map->ray.side = 1;
 			}
-			if (map->map[map->playX][map->playY] > '0')
+			if (map->map[map->playX][map->playY] == '1')
 				map->ray.hit = 1;
 		}
 		//--------------------------//
@@ -150,7 +152,8 @@ void    op_vector(t_map *map)
 
 		if (map->ray.side == 1)
 			color = color / 2;
-		
+		//print_c(map);
+		//print_f(map);
 		pixel_put3(map, x, color);
 		
 		x++;

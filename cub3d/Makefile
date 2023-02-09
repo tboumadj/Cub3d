@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/08 18:15:09 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/09 16:51:16 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,13 @@ SRCS = main.c \
 		src/close.c \
 		src/utils.c \
 		src/action_ray.c \
-		src/raycast.c
+		src/raycast.c \
+		src/print.c
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -Ofast -march=native
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
 RM = rm -f
-CHECK = -fsanitize=leak
+CHECK = -fsanitize=address
 HEADER = cube.h
 OBJS = $(SRCS:.c=.o)
 

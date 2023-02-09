@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:45:28 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/07 16:05:36 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:36:19 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	verif_wall(char **str)
 	int	i;
 	int	a;
 
-	a = 7;
+	a = -1;
 	while (str[++a + 1])
 	{
 		i = -1;
@@ -26,7 +26,7 @@ int	verif_wall(char **str)
 				if ((str[a][i + 1] == ' ') || (str[a][i - 1] == ' ')
 			|| (str[a + 1][i] == ' ') || (str[a - 1][i] == ' ')
 			|| (str[a][i + 1] == '\n') || (str[a][i - 1] == '\n')
-			|| (str[a + 1][i] == '\n') || (str[a - 1][i] == '\n') || i == 0)
+			|| (str[a + 1][i] == '\n') || (str[a - 1][i] == '\n') || i == 0 || a == 0)
 					return (1);
 	}
 	i = -1;
@@ -42,12 +42,14 @@ int	verif_char(char **str)
 {
 	int	i;
 	int	a;
+	int c;
 
-	a = 7;
+	a = -1;
+	c = 0;
 	while (str[++a])
 	{
-		i = 0;
-		while (str[a][i])
+		i = 4;
+		while (str[a][++i])
 		{
 			if ((str[a][i] != '0') && (str[a][i] != '1')
 				&& (str[a][i] != '2') && (str[a][i] != 'N')
@@ -55,9 +57,13 @@ int	verif_char(char **str)
 				&& (str[a][i] != 'W') && (str[a][i] != ' ')
 				&& (str[a][i] != '\n'))
 				return (1);
-			i++;
+			if (str[a][i] == 'N' || str[a][i] == 'S' || str[a][i] == 'E' 
+					|| str[a][i] == 'W')
+					c++;
 		}
 	}
+	if (c != 1)
+		return (1);
 	return (0);
 }
 

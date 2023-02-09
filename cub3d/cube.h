@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/07 16:04:59 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:30:07 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,19 @@
 # define ROTATE_RIGHT 124
 # define ENTER		76
 # define RETURN		36
-# define width	640
-# define height 480
+# define width	480
+# define height 320
 
 typedef struct s_texture
 {
-	char *nord;
-	char *sud;
-	char *est;
-	char *ouest;
+	char	*nord;
+	char 	*sud;
+	char 	*est;
+	char 	*ouest;
+	int		screenX;
+	int		screenY;
+	int		rX;
+	int		rY;
 } t_texture;
 
 typedef struct s_ray
@@ -118,6 +122,7 @@ int			error_cub(char *str);
 int 		stock_text(t_map *map, char *path, char *str);
 void		init(t_map *map, char **argv);
 void		init_ray(t_map *map);
+void		ft_screen(t_map *map);
 
 //RAYCAST.c
 void		pixel_put3(t_map *map, int x, int color);
@@ -137,6 +142,10 @@ void		extract_map(t_map *map, char **argv, int len);
 
 //FREE.c
 void		free_exit(t_map *map);
+
+//PRINT.c
+void		print_c(t_map *map);
+void		print_f(t_map *map);
 
 //PRINT_MAP.c
 int 		put_pix(t_map *map);

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:14:52 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/08 17:52:55 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:45:32 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 
 int	action_ray_game(int key, t_map *map)
 {
-	mlx_destroy_image(map->mlx, map->img);
-	map->img = mlx_new_image(map->mlx, width, height);
-	map->addr = mlx_get_data_addr(map->img, &map->bits_per_pixel, &map->line_length, &map->endian);
+	print_c(map);
+	print_f(map);
 	//mlx_clear_window(map->mlx, map->win);
 	if (key == UP)
 		player_ray_up(map);

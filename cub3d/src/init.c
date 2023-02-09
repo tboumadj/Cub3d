@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/07 18:41:42 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 16:59:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,41 @@ void    init(t_map *map, char **argv)
 	map->map = NULL;
 	map->text = NULL;
 	map->len = 0;
+	map->texture.rX = width;
+	map->texture.rY = height;
+	printf("rX = %d ", map->texture.rX);
+	printf("rY = %d\n", map->texture.rY);
     init_map(map, argv);
 	find_player(map);
+	ft_error(map->map);
 //-----------------------------------
-    map->mlx = mlx_init();
-	map->win = mlx_new_window(map->mlx, width, height, "Cub3d");
-	map->img = mlx_new_image(map->mlx, width, height);
-	map->addr = mlx_get_data_addr(map->img, &map->bits_per_pixel, &map->line_length, &map->endian);
-	//mlx_new_image(map->mlx, width, height);
+	ft_screen(map);
 	init_ray(map);
 	return ;
 }
 
+void	ft_screen(t_map *map)
+{
+    map->mlx = mlx_init();
+	//----------TEST SCREEN SIZE-------
+	/*
+	mlx_get_screen_size(map->mlx, &map->texture.screenX, &map->texture.screenY);
+	map->texture.rX = (map->texture.rX > map->texture.screenX) ? map->texture.screenX : map->texture.rX;
+	map->texture.rY = (map->texture.rY > map->texture.screenY) ? map->texture.screenY : map->texture.rY;
+	printf("rX2 = %d ", map->texture.rX);
+	printf("rY2 = %d\n", map->texture.rY);*/
+	//---------------------
+	map->win = mlx_new_window(map->mlx, map->texture.rX, map->texture.rY, "Cub3d");
+	map->img = mlx_new_image(map->mlx, map->texture.rX, map->texture.rY);
+	map->addr = mlx_get_data_addr(map->img, &map->bits_per_pixel, &map->line_length, &map->endian);
+	//mlx_new_image(map->mlx, width, height);
+}
+
+
 void	init_ray(t_map *map)
 {
-	map->moveSpeed = 0.15;
-	map->rotSpeed = 0.15;
+	map->moveSpeed = 0.45;
+	map->rotSpeed = 0.45;
 	//------------------
 	map->ray.dirX = -1;
 	map->ray.dirY = 0;
