@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:22:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/09 21:51:33 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/10 16:20:49 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ void	print_f(t_map *map)
 	int	y;
 
 	y = (map->texture.rY / 2);
-	while (y <= (map->texture.rY))
+	while (y < (map->texture.rY))
 	{
 		x = 0;
-		while(x <= map->texture.rX)
+		while(x < map->texture.rX)
 		{
-			my_mlx_pixel(map, x, y, RED);
+			my_mlx_pixel(map, x, y, WHITE);
 			x++;
 		}
 		y++;
@@ -37,10 +37,10 @@ void	print_c(t_map *map)
 	int	y;
 
 	y = 0;
-	while (y <= (map->texture.rY / 2))
+	while (y < (map->texture.rY / 2))
 	{
 		x = 0;
-		while(x <= map->texture.rX)
+		while(x < map->texture.rX)
 		{
 			my_mlx_pixel(map, x, y, BLUE);
 			x++;

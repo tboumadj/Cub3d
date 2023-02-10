@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/09 16:59:46 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:28:04 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ void	ft_screen(t_map *map)
 
 void	init_ray(t_map *map)
 {
-	map->moveSpeed = 0.45;
-	map->rotSpeed = 0.45;
+	map->moveSpeed = 0.25;
+	map->rotSpeed = 0.15;
 	//------------------
 	map->ray.dirX = -1;
 	map->ray.dirY = 0;

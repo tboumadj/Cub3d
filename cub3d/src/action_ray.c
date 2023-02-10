@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 17:14:52 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/09 16:45:32 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/10 16:23:05 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	action_ray_game(int key, t_map *map)
 {
-	print_c(map);
-	print_f(map);
+	//print_c(map);
+	//print_f(map);
 	//mlx_clear_window(map->mlx, map->win);
 	if (key == UP)
 		player_ray_up(map);
@@ -27,7 +27,8 @@ int	action_ray_game(int key, t_map *map)
 		player_ray_right(map);
 	if (key == ECHAP)
 		ft_close(map);
-	op_vector(map);
+	test_loop(map);//TEST
+	//op_vector(map);
 	return (0);
 }
 

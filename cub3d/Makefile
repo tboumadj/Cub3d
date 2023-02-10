@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+         #
+#    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/09 21:47:06 by tboumadj@student ###   ########.fr        #
+#    Updated: 2023/02/10 16:24:29 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS = main.c \
 		src/raycast.c \
 		src/print.c
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Ofast ##-march=native
+FLAGS = -Wall -Wextra -Werror -Ofast -march=native
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
 RM = rm -f
 CHECK = -fsanitize=address

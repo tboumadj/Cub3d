@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:19:45 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/09 19:09:22 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/10 16:10:03 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int main(int argc, char **argv)
 		printf("%s", map.text[i++]);
 	printf("\n");
 	//-----------------------------------*/
-	mlx_loop_hook(map.mlx, &test_loop, &map);
+	//mlx_loop_hook(map.mlx, &test_loop, &map);
+	test_loop(&map);//TEST
 	mlx_hook(map.win, 2, 1L << 0, action_ray_game, &map);
 	mlx_hook(map.win, 17, 1L << 17, ft_close, &map);
 	mlx_loop(map.mlx);
