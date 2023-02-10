@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/10 18:11:55 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/10 19:44:37 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ void    init(t_map *map, char **argv)
 	map->len = 0;
 	map->texture.rX = width;
 	map->texture.rY = height;
+	//-------COLOR
 	map->color.r = -1;
 	map->color.g = -1;
 	map->color.b = -1;
+	//-----------
 	printf("rX = %d ", map->texture.rX);
 	printf("rY = %d\n", map->texture.rY);
     init_map(map, argv);
