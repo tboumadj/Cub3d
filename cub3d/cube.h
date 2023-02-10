@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/10 16:30:38 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:09:41 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,23 @@
 # define width	1280 //420
 # define height 720 //380
 
+typedef struct	s_color
+{
+	int	r;
+	int	g;
+	int	b;
+} t_color;
+
 typedef struct s_texture
 {
 	char	*nord;
 	char 	*sud;
 	char 	*est;
 	char 	*ouest;
-	int		screenX;
-	int		screenY;
+	int		color_f;
+	int		color_c;
+	//int		screenX;
+	//int		screenY;
 	int		rX;
 	int		rY;
 } t_texture;
@@ -88,18 +97,19 @@ typedef struct s_ray
 
 typedef struct s_map
 {
-	int 	fd;
-	void	*mlx;
-	void	*win;
-	char 	**map;
-	char	**text;
-	int		len;
-	int		playX;	//pos joueur sur map (vertical X)   (= posX)
-	int		playY;	//pos joueur sur map (horizontal Y)	(= posY)
-	double	moveSpeed; //-vitesse mouvement joueur
-	double	rotSpeed; //-vitesse rotation joueur
-	t_texture texture;
-	t_ray	ray;
+	int 		fd;
+	void		*mlx;
+	void		*win;
+	char 		**map;
+	char		**text;
+	int			len;
+	int			playX;	//pos joueur sur map (vertical X)   (= posX)
+	int			playY;	//pos joueur sur map (horizontal Y)	(= posY)
+	double		moveSpeed; //-vitesse mouvement joueur
+	double		rotSpeed; //-vitesse rotation joueur
+	t_color		color;
+	t_texture 	texture;
+	t_ray		ray;
 	void		*img;
 	char		*addr;
 	int			bits_per_pixel;

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/10 16:28:04 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:11:55 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void    init(t_map *map, char **argv)
 	map->len = 0;
 	map->texture.rX = width;
 	map->texture.rY = height;
+	map->color.r = -1;
+	map->color.g = -1;
+	map->color.b = -1;
 	printf("rX = %d ", map->texture.rX);
 	printf("rY = %d\n", map->texture.rY);
     init_map(map, argv);
@@ -55,8 +58,8 @@ void	ft_screen(t_map *map)
 
 void	init_ray(t_map *map)
 {
-	map->moveSpeed = 0.25;
-	map->rotSpeed = 0.15;
+	map->moveSpeed = 0.15;
+	map->rotSpeed = 0.09;
 	//------------------
 	map->ray.dirX = -1;
 	map->ray.dirY = 0;
