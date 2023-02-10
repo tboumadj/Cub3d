@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/09 17:30:07 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 21:51:55 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@
 # define ROTATE_RIGHT 124
 # define ENTER		76
 # define RETURN		36
-# define width	480
-# define height 320
+# define width	420
+# define height 380
 
 typedef struct s_texture
 {

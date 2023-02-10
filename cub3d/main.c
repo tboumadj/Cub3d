@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:19:45 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/09 16:43:04 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/09 19:09:22 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ int main(int argc, char **argv)
 	}
 	init(&map, argv);
 	//---------------PRINT----------------
-	int i = 0;
+	/*int i = 0;
 	while (map.map[i])
 		printf("map= %s", map.map[i++]);
 	printf("\n");
-	/*
+	
 	printf("\n");
 	printf("posx = %d ", map.playX);
 	printf("posy = %d\n", map.playY);
