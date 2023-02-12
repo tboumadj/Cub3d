@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:19:45 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/10 16:10:03 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:26:53 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 	printf("\n");
 	//-----------------------------------*/
 	//mlx_loop_hook(map.mlx, &test_loop, &map);
+	//-----------------------------------//
 	test_loop(&map);//TEST
 	mlx_hook(map.win, 2, 1L << 0, action_ray_game, &map);
 	mlx_hook(map.win, 17, 1L << 17, ft_close, &map);

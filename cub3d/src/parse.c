@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
+/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:33:18 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/04 02:56:23 by tboumadj@student ###   ########.fr       */
+/*   Updated: 2023/02/12 18:35:01 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,22 @@ void	extract_map(t_map *map, char **argv, int len)
 			free(tmp);
 	}
 	return ;
+}
+
+//--------------TEST---------------//
+
+int	stock_text(t_map *map, char *path, char *str)
+{
+	int	i;
+
+	i = 0;
+	while (i <= 3)
+	{
+		if (!strncmp(map->text[i], str, 3))
+			path = map->text[i] += 3;
+		i++;
+	}
+	if (path == NULL)
+		return (1);
+	return (0);
 }

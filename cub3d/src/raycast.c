@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/10 19:52:03 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:10:02 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 void	reset_val(t_map *map)
 {
 	map->ray.cameraX = 0;
-	map->ray.raydirX = 0;
-	map->ray.raydirY = 0;
+	//map->ray.raydirX = 0;
+	//map->ray.raydirY = 0;
 	map->ray.sidedistX = 0;
 	map->ray.sidedistY = 0;
 	map->ray.deltadistX = 0;
@@ -70,10 +70,10 @@ void    op_vector(t_map *map)
 	
 	x = 0;
 	color = 0;
-	while (x < width)
+	while (x < map->texture.rX)
 	{
 		reset_val(map);
-		map->ray.cameraX = 2 * x / (double)width - 1;
+		map->ray.cameraX = 2 * x / (double)map->texture.rX - 1;
 		map->ray.raydirX = map->ray.dirX + map->ray.planX * map->ray.cameraX;
 		map->ray.raydirY = map->ray.dirY + map->ray.planY * map->ray.cameraX;
 
@@ -137,13 +137,13 @@ void    op_vector(t_map *map)
 		if(!map->ray.distwallP)
 			map->ray.distwallP = 1;
 		//---------DRAW-------------//
-		map->ray.lineheight = (int)(height / map->ray.distwallP);
-		map->ray.drawstart = -map->ray.lineheight / 2 + height / 2;
+		map->ray.lineheight = (int)(map->texture.rY / map->ray.distwallP);
+		map->ray.drawstart = -map->ray.lineheight / 2 + map->texture.rY / 2;
 		if (map->ray.drawstart < 0)
 			map->ray.drawstart = 0;
-		map->ray.drawend = map->ray.lineheight / 2 + height / 2;
-		if ( map->ray.drawend >= height)
-			map->ray.drawend = height - 1;
+		map->ray.drawend = map->ray.lineheight / 2 + map->texture.rY / 2;
+		if ( map->ray.drawend >= map->texture.rY)
+			map->ray.drawend = map->texture.rY - 1;
 			
 		//--------COLOR--------//
 		if (map->map[map->playX][map->playY] == '1')

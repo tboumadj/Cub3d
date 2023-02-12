@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/10 19:44:37 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:56:37 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,42 +19,50 @@ void    init(t_map *map, char **argv)
     map->fd = open(argv[1], O_RDONLY);
 	if (map->fd == -1)
 		exit (EXIT_FAILURE);
+	//---------MAP------//
 	map->map = NULL;
 	map->text = NULL;
 	map->len = 0;
+	//------SCREEN------//
 	map->texture.rX = width;
 	map->texture.rY = height;
-	//-------COLOR
+	//-------COLOR-------//
 	map->color.r = -1;
 	map->color.g = -1;
 	map->color.b = -1;
-	//-----------
+	//------------------------------------------//
 	printf("rX = %d ", map->texture.rX);
 	printf("rY = %d\n", map->texture.rY);
+	//--------MAP
     init_map(map, argv);
 	find_player(map);
 	ft_error(map->map);
-//-----------------------------------
+	//-------COLOR
+	//init_color(map);
+	//---------screen
 	ft_screen(map);
 	init_ray(map);
 	return ;
 }
 
+/*void	init_color(t_map *map)
+{
+	
+}*/
+
 void	ft_screen(t_map *map)
 {
     map->mlx = mlx_init();
 	//----------TEST SCREEN SIZE-------
-	/*
 	mlx_get_screen_size(map->mlx, &map->texture.screenX, &map->texture.screenY);
 	map->texture.rX = (map->texture.rX > map->texture.screenX) ? map->texture.screenX : map->texture.rX;
 	map->texture.rY = (map->texture.rY > map->texture.screenY) ? map->texture.screenY : map->texture.rY;
 	printf("rX2 = %d ", map->texture.rX);
-	printf("rY2 = %d\n", map->texture.rY);*/
+	printf("rY2 = %d\n", map->texture.rY);
 	//---------------------
 	map->win = mlx_new_window(map->mlx, map->texture.rX, map->texture.rY, "Cub3d");
 	map->img = mlx_new_image(map->mlx, map->texture.rX, map->texture.rY);
 	map->addr = mlx_get_data_addr(map->img, &map->bits_per_pixel, &map->line_length, &map->endian);
-	//mlx_new_image(map->mlx, width, height);
 }
 
 
@@ -63,10 +71,8 @@ void	init_ray(t_map *map)
 	map->moveSpeed = 0.15;
 	map->rotSpeed = 0.09;
 	//------------------
-	map->ray.dirX = -1;
-	map->ray.dirY = 0;
-	map->ray.planX = 0;
-	map->ray.planY = 0.66;
+	init_dir(map);
+	//---------------------
 	map->ray.posX = map->playX;
 	map->ray.posY = map->playY;
 	//-------------------
@@ -88,20 +94,35 @@ void	init_ray(t_map *map)
 	map->ray.drawend = 0;
 }
 
-//--------------TEST---------------//
-
-int	stock_text(t_map *map, char *path, char *str)
+void	init_dir(t_map *map)
 {
-	int	i;
-
-	i = 0;
-	while (i <= 3)
+	map->ray.dirX = 0;
+	map->ray.dirY = 0;
+	map->ray.planX = 0;
+	map->ray.planY = 0;
+	if (map->map[map->playX][map->playY] == 'N')
+		{
+			map->ray.dirX = -1;
+			map->ray.planY = 0.66;
+		}
+	if (map->map[map->playX][map->playY] == 'S')
 	{
-		if (!strncmp(map->text[i], str, 3))
-			path = map->text[i] += 3;
-		i++;
+		map->ray.dirX = 1;
+		map->ray.planY= -0.66;
 	}
-	if (path == NULL)
-		return (1);
-	return (0);
+	if (map->map[map->playX][map->playY] == 'E')
+	{
+		map->ray.dirY = 1;
+		map->ray.planX = 0.66;
+	}
+	if (map->map[map->playX][map->playY] == 'W')
+	{
+		map->ray.dirY = -1;
+		map->ray.planX = -0.66;
+	}
+	//---------------------------------
+	printf("dX = %f ", map->ray.dirX);
+	printf("dY = %f\n", map->ray.dirY);
+	printf("pX = %f ", map->ray.planX);
+	printf("pY = %f\n", map->ray.planY);
 }

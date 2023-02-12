@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/10 18:09:41 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:56:23 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ typedef struct s_texture
 	char 	*ouest;
 	int		color_f;
 	int		color_c;
-	//int		screenX;
-	//int		screenY;
+	int		screenX;
+	int		screenY;
 	int		rX;
 	int		rY;
 } t_texture;
@@ -129,10 +129,11 @@ int     	ft_error(char **str);
 int			error_cub(char *str);
 
 //INIT.c
-int 		stock_text(t_map *map, char *path, char *str);
 void		init(t_map *map, char **argv);
 void		init_ray(t_map *map);
 void		ft_screen(t_map *map);
+void		init_dir(t_map *map);
+//void		init_color(t_map *map);
 
 //RAYCAST.c
 void		pixel_put3(t_map *map, int x, int color);
@@ -149,6 +150,7 @@ void		player_ray_right(t_map *map);
 //PARSE.c
 void		init_map(t_map *map, char **argv);
 void		extract_map(t_map *map, char **argv, int len);
+int 		stock_text(t_map *map, char *path, char *str);
 
 //FREE.c
 void		free_exit(t_map *map);
