@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/12 18:56:23 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:21:11 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ typedef struct s_texture
 	char 	*sud;
 	char 	*est;
 	char 	*ouest;
-	int		color_f;
-	int		color_c;
+	t_color		color_f;
+	t_color		color_c;
 	int		screenX;
 	int		screenY;
 	int		rX;
@@ -133,7 +133,8 @@ void		init(t_map *map, char **argv);
 void		init_ray(t_map *map);
 void		ft_screen(t_map *map);
 void		init_dir(t_map *map);
-//void		init_color(t_map *map);
+void		init_color(t_map *map);
+void		reset_color(t_color *color);
 
 //RAYCAST.c
 void		pixel_put3(t_map *map, int x, int color);

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/12 18:56:37 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:21:24 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,30 @@ void    init(t_map *map, char **argv)
 	find_player(map);
 	ft_error(map->map);
 	//-------COLOR
-	//init_color(map);
+	init_color(map);
 	//---------screen
 	ft_screen(map);
 	init_ray(map);
 	return ;
 }
 
-/*void	init_color(t_map *map)
+void	extract_color(t_map *map, t_color *color)
 {
-	
-}*/
+
+}
+
+void	reset_color(t_color *color)
+{
+	color->r = -1;
+	color->g = -1;
+	color->b = -1;
+}
+void	init_color(t_map *map)
+{
+	reset_color(&map->texture.color_c);
+	reset_color(&map->texture.color_f);
+	extract_color(map, &map->texture.color_c);
+}
 
 void	ft_screen(t_map *map)
 {
