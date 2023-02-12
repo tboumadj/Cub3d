@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/12 19:40:45 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 20:22:48 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_color
 	int	r;
 	int	g;
 	int	b;
+	unsigned long rgb;
 } t_color;
 
 typedef struct s_texture
@@ -129,13 +130,14 @@ int     	ft_error(char **str);
 int			error_cub(char *str);
 
 //INIT.c
-void		init(t_map *map, char **argv);
-void		init_ray(t_map *map);
-void		ft_screen(t_map *map);
-void		init_dir(t_map *map);
-void		init_color(t_map *map);
-void		reset_color(t_color *color);
-void		extract_color(t_map *map, t_color *color, char c);
+void			init(t_map *map, char **argv);
+void			init_ray(t_map *map);
+void			ft_screen(t_map *map);
+void			init_dir(t_map *map);
+void			init_color(t_map *map);
+void			reset_color(t_color *color);
+void			extract_color(t_map *map, t_color *color, char c);
+unsigned long	calcul_rgb(t_color *color);
 
 //RAYCAST.c
 void		pixel_put3(t_map *map, int x, int color);
