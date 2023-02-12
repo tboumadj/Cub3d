@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/12 19:21:24 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/12 19:54:55 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,29 @@ void    init(t_map *map, char **argv)
 	return ;
 }
 
-void	extract_color(t_map *map, t_color *color)
+void	extract_color(t_map *map, t_color *color, char c)
 {
+	int	i;
+	int j;
 
+	i = 4;
+	j = 1;
+	while (map->text[i])
+	{
+		if (find_cmp(map->text[i], c) == 1)
+			{
+
+				color->r = ft_atoi(&map->text[i][j]);
+				while (map->text[i][j] != ',')
+					j++;
+				color->g = ft_atoi(&map->text[i][++j]);
+				while (map->text[i][j] != ',')
+					j++;
+				color->b = ft_atoi(&map->text[i][++j]);
+			}
+		i++;
+	}
+	return ;
 }
 
 void	reset_color(t_color *color)
@@ -60,7 +80,8 @@ void	init_color(t_map *map)
 {
 	reset_color(&map->texture.color_c);
 	reset_color(&map->texture.color_f);
-	extract_color(map, &map->texture.color_c);
+	extract_color(map, &map->texture.color_c, 'C');
+	extract_color(map, &map->texture.color_f, 'F');
 }
 
 void	ft_screen(t_map *map)
