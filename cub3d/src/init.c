@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/13 17:52:42 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:25:10 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void	init_ray(t_map *map)
 	map->ray.lineheight = 0;
 	map->ray.drawstart = 0;
 	map->ray.drawend = 0;
+	map->map[map->playX][map->playY] = '0';
 }
 
 void	init_dir(t_map *map)

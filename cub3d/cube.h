@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/13 17:56:30 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:32:33 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,8 +148,10 @@ void    	op_vector(t_map *map);
 int			action_ray_game(int key, t_map *map);
 void		player_ray_up(t_map *map);
 void		player_ray_down(t_map *map);
-void		player_ray_left(t_map *map);
+void		player_rotate_left(t_map *map);
+void		player_rotate_right(t_map *map);
 void		player_ray_right(t_map *map);
+void		player_ray_left(t_map *map);
 
 //PARSE.c
 void		init_map(t_map *map, char **argv);
