@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/12 20:22:48 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:56:30 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,15 @@
 # define ROTATE_RIGHT 124
 # define ENTER		76
 # define RETURN		36
-# define width	1280 //420
-# define height 720 //380
+# define width	1280
+# define height 720
 
 typedef struct	s_color
 {
 	int	r;
 	int	g;
 	int	b;
-	unsigned long rgb;
+	int	rgb;
 } t_color;
 
 typedef struct s_texture
@@ -137,7 +137,7 @@ void			init_dir(t_map *map);
 void			init_color(t_map *map);
 void			reset_color(t_color *color);
 void			extract_color(t_map *map, t_color *color, char c);
-unsigned long	calcul_rgb(t_color *color);
+int				calcul_rgb(t_color *color);
 
 //RAYCAST.c
 void		pixel_put3(t_map *map, int x, int color);
@@ -174,7 +174,7 @@ void		find_player(t_map *map);
 int			find_cmp(char *str1, char c);
 
 //------------TEST-----------------//
-void		pixel_player(t_map *map, int x, int y, int color);
+void		pixel_player(t_map *map, int x, int y, int color);//old
 void		reset_val(t_map *map);
 void		my_mlx_pixel(t_map *map, int x, int y, int color);
 

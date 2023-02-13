@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 16:22:46 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/10 19:52:54 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:55:30 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_f(t_map *map)
 		x = 0;
 		while(x < map->texture.rX)
 		{
-			my_mlx_pixel(map, x, y, WHITE);
+			my_mlx_pixel(map, x, y, map->texture.color_f.rgb);
 			x++;
 		}
 		y++;
@@ -42,7 +42,7 @@ void	print_c(t_map *map)
 		x = 0;
 		while(x < map->texture.rX)
 		{
-			my_mlx_pixel(map, x, y, PURPLE);
+			my_mlx_pixel(map, x, y, map->texture.color_c.rgb);
 			x++;
 		}
 		y++;

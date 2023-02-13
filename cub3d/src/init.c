@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/12 20:23:57 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:52:42 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void    init(t_map *map, char **argv)
 	return ;
 }
 
-unsigned long	calcul_rgb(t_color *color)
+int	calcul_rgb(t_color *color)
 {
-	return ((color->r & 0xff) << 16) + ((color->g & 0xff) << 8) + (color->b & 0xff);
+	return ((color->r << 16 | color->g << 8 | color->b));
 }
 
 void	extract_color(t_map *map, t_color *color, char c)
@@ -61,7 +61,6 @@ void	extract_color(t_map *map, t_color *color, char c)
 	{
 		if (find_cmp(map->text[i], c) == 1)
 			{
-
 				color->r = ft_atoi(&map->text[i][j]);
 				while (map->text[i][j] != ',')
 					j++;
@@ -69,6 +68,7 @@ void	extract_color(t_map *map, t_color *color, char c)
 				while (map->text[i][j] != ',')
 					j++;
 				color->b = ft_atoi(&map->text[i][++j]);
+				return ;
 			}
 		i++;
 	}
@@ -85,12 +85,18 @@ void	init_color(t_map *map)
 {
 	reset_color(&map->texture.color_c);
 	reset_color(&map->texture.color_f);
-	extract_color(map, &map->texture.color_c, 'C');
 	extract_color(map, &map->texture.color_f, 'F');
-	//map->texture.color_c.rgb = calcul_rgb(&map->texture.color_c);
-	//map->texture.color_f.rgb = calcul_rgb(&map->texture.color_f);
-	//printf("c:rgb = %lu\n", map->texture.color_c.rgb);
-	//printf("f:rgb = %lu\n", map->texture.color_f.rgb);
+	extract_color(map, &map->texture.color_c, 'C');
+	/*printf("f:r = %d ", map->texture.color_f.r);
+	printf("f:g = %d ", map->texture.color_f.g);
+	printf("f:b = %d\n", map->texture.color_f.b);
+	printf("c:r = %d ", map->texture.color_c.r);
+	printf("c:g = %d ", map->texture.color_c.g);
+	printf("c:b = %d\n", map->texture.color_c.b);*/
+	map->texture.color_c.rgb = calcul_rgb(&map->texture.color_c);
+	map->texture.color_f.rgb = calcul_rgb(&map->texture.color_f);
+	printf("c:rgb = %d\n", map->texture.color_c.rgb);
+	printf("f:rgb = %d\n", map->texture.color_f.rgb);
 
 }
 
