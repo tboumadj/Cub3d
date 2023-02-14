@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:13:12 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/14 15:14:33 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:37:42 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,26 @@ int	action_ray_game(int key, t_map *map)
 
 void	player_rotate_right(t_map *map)
 {
-	double oldDirX = map->ray.dirX;
+	double	olddirx;
+	double	oldplanx;
+
+	olddirx = map->ray.dirX;
 	map->ray.dirX = map->ray.dirX * cos(-map->rotSpeed) - map->ray.dirY * sin(-map->rotSpeed);
-	map->ray.dirY = oldDirX * sin(-map->rotSpeed) + map->ray.dirY * cos(-map->rotSpeed);
-	double oldPlanX = map->ray.planX;
+	map->ray.dirY = olddirx * sin(-map->rotSpeed) + map->ray.dirY * cos(-map->rotSpeed);
+	oldplanx = map->ray.planX;
 	map->ray.planX = map->ray.planX * cos(-map->rotSpeed) - map->ray.planY * sin(-map->rotSpeed);
-	map->ray.planY = oldPlanX * sin(-map->rotSpeed) + map->ray.planY * cos(-map->rotSpeed);
+	map->ray.planY = oldplanx * sin(-map->rotSpeed) + map->ray.planY * cos(-map->rotSpeed);
 }
 
 void	player_rotate_left(t_map *map)
 {
-	double oldDirX = map->ray.dirX;
+	double	olddirx;
+	double	oldplanx;
+
+	olddirx = map->ray.dirX;
 	map->ray.dirX = map->ray.dirX * cos(map->rotSpeed) - map->ray.dirY * sin(map->rotSpeed);
-	map->ray.dirY = oldDirX * sin(map->rotSpeed) + map->ray.dirY * cos(map->rotSpeed);
-	double oldPlanX = map->ray.planX;
+	map->ray.dirY = olddirx * sin(map->rotSpeed) + map->ray.dirY * cos(map->rotSpeed);
+	oldplanx = map->ray.planX;
 	map->ray.planX = map->ray.planX * cos(map->rotSpeed) - map->ray.planY * sin(map->rotSpeed);
-	map->ray.planY = oldPlanX * sin(map->rotSpeed) + map->ray.planY * cos(map->rotSpeed);
+	map->ray.planY = oldplanx * sin(map->rotSpeed) + map->ray.planY * cos(map->rotSpeed);
 }

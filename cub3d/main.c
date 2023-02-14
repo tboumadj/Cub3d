@@ -6,16 +6,16 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:19:45 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/14 15:07:04 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:15:15 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cube.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_map map;
-	
+	t_map	map;
+
 	if (argc != 2)
 	{
 		printf("Bad number of arguments !\n");
@@ -27,7 +27,6 @@ int main(int argc, char **argv)
 	while (map.map[i])
 		printf("map= %s", map.map[i++]);
 	printf("\n");
-	
 	printf("\n");
 	printf("posx = %d ", map.playX);
 	printf("posy = %d\n", map.playY);
@@ -37,11 +36,10 @@ int main(int argc, char **argv)
 		printf("%s", map.text[i++]);
 	printf("\n");
 	//-----------------------------------*/
-	
 	test_loop(&map);
 	mlx_hook(map.win, 2, 1L << 0, action_ray_game, &map);
 	mlx_hook(map.win, 17, 1L << 17, ft_close, &map);
 	mlx_loop(map.mlx);
 	free_exit(&map);
-	return 0;
+	return (0);
 }

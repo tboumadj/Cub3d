@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/14 15:37:54 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/14 17:45:07 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,8 @@ int 		put_pix(t_map *map);
 int			put_pix2(t_map *map);//USELESS
 void		pixel_square(t_map *map, int x, int y, int color);
 void		pixel_square2(t_map *map, int x, int y, int color);
+
+//TEXTURE.c
 
 //UTILS.c
 void		find_player(t_map *map);
