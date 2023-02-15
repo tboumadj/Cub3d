@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/14 15:10:59 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:57:18 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void    init(t_map *map, char **argv)
 	ft_error(map->map);
 	//-------COLOR
 	init_color(map);
+	init_texture(map);
 	//---------screen
 	ft_screen(map);
 	init_ray(map);
@@ -47,6 +48,10 @@ void    init(t_map *map, char **argv)
 
 void	init_color(t_map *map)
 {
+	map->texture.nord = NULL;
+	map->texture.sud = NULL;
+	map->texture.ouest = NULL;
+	map->texture.est = NULL;
 	reset_color(&map->texture.color_c);
 	reset_color(&map->texture.color_f);
 	extract_color(map, &map->texture.color_f, 'F');

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/14 17:45:07 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:35:01 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ int			verif_wall(char **str);
 int			verif_char(char **str);
 int     	ft_error(char **str);
 int			error_cub(char *str);
+void		error_text(t_map *map);
 
 //INIT.c
 void			init(t_map *map, char **argv);
@@ -168,11 +169,12 @@ void		print_f(t_map *map);
 
 //PRINT_MAP.c
 int 		put_pix(t_map *map);
-int			put_pix2(t_map *map);//USELESS
+int			put_pix2(t_map *map);
 void		pixel_square(t_map *map, int x, int y, int color);
 void		pixel_square2(t_map *map, int x, int y, int color);
 
 //TEXTURE.c
+void		init_texture(t_map *map);//TEST
 
 //UTILS.c
 void		find_player(t_map *map);

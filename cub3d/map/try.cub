@@ -1,7 +1,7 @@
-NO ./texture/north 
-SO ./texture/south
-WE ./texture/west 
-EA ./texture/east  
+NO ./texture/greystone.xpm
+SO ./texture/purplestone.xpm
+WE ./texture/redbrick.xpm
+EA ./texture/wood.xpm
 
 F 42,42,0
 C 0,128,128

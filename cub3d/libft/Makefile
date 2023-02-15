@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/26 11:42:31 by tboumadj          #+#    #+#              #
-#    Updated: 2022/09/21 13:38:08 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/15 18:23:40 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ SRCS 		= ft_pourcentdi.c \
 				get_next_line.c \
 				ft_atoi.c \
 				ft_itoa.c \
-				ft_strncmp.c
+				ft_strncmp.c \
+				ft_strdup.c
 
 
 OBJS	= $(SRCS:%.c=%.o)

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:45:28 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/14 15:38:24 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:34:50 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,4 +85,10 @@ int	error_cub(char *str)
 	if (ft_strncmp(str + ft_strlen(str) - 4, ".cub",4))
 		return (1);
 	return (0);
+}
+
+void	error_text(t_map *map)
+{
+	free_exit(map);
+	exit_error("Texture cannot be open! \n");
 }

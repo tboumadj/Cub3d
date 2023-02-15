@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/14 17:44:52 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/15 18:19:54 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRCS = main.c \
 		src/raycast.c \
 		src/color.c \
 		src/action.c \
-		src/print.c
+		src/print.c \
+		src/texture.c
 CC = gcc
 FLAGS = -Wall -Wextra -Werror -Ofast -march=native ##-Wno-deprecated
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit

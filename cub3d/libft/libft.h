@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 11:21:10 by tboumadj          #+#    #+#             */
-/*   Updated: 2022/10/23 18:54:06 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:23:57 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ int			ft_strint(int nb);
 int			ft_atoi(const char *str);
 char		*ft_itoa(int n);
 int	        ft_strncmp(const char *s1, const char *s2, size_t n);
+char	    *ft_strdup(const char *s);
 
 #endif
