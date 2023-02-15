@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/12 18:10:02 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:11:09 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ int	test_loop(t_map *map)
 	return (0);
 }
 
+void	pixel_wall(t_map *map)
+{
+	int x;
+
+
+	x = 0;
+	while (x <= map->texture.rX)
+	{
+		load_texture(map);
+		calc_texture(map);
+		put_wall(map, x);
+		x++;
+	}
+	//mlx_put_image_to_window(map->mlx, map->win, map->img, 0, 0);
+}
+
 void	pixel_put3(t_map *map, int x, int color)
 {
 	int y;
@@ -55,7 +71,6 @@ void	pixel_put3(t_map *map, int x, int color)
 	y = map->ray.drawstart;
 	while (y <= map->ray.drawend)
 	{
-		//mlx_pixel_put(map->mlx, map->win, x, y, color);
 		my_mlx_pixel(map, x, y, color);
 		y++;
 	}
@@ -146,16 +161,17 @@ void    op_vector(t_map *map)
 			map->ray.drawend = map->texture.rY - 1;
 			
 		//--------COLOR--------//
-		if (map->map[map->playX][map->playY] == '1')
+		/*if (map->map[map->playX][map->playY] == '1')
 			color = GREY;
 		else 
 			color = WHITE;
 
 		if (map->ray.side == 1)
-			color = color / 2;
+			color = color / 2;*/
 		//print_c(map);
 		//print_f(map);
-		pixel_put3(map, x, color);
+		//pixel_put3(map, x, color);
+		pixel_wall(map);
 		
 		x++;
 		//mlx_clear_window(map->mlx, map->win);

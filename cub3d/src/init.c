@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/15 18:57:18 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:27:40 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,16 +56,8 @@ void	init_color(t_map *map)
 	reset_color(&map->texture.color_f);
 	extract_color(map, &map->texture.color_f, 'F');
 	extract_color(map, &map->texture.color_c, 'C');
-	/*printf("f:r = %d ", map->texture.color_f.r);
-	printf("f:g = %d ", map->texture.color_f.g);
-	printf("f:b = %d\n", map->texture.color_f.b);
-	printf("c:r = %d ", map->texture.color_c.r);
-	printf("c:g = %d ", map->texture.color_c.g);
-	printf("c:b = %d\n", map->texture.color_c.b);*/
 	map->texture.color_c.rgb = calcul_rgb(&map->texture.color_c);
 	map->texture.color_f.rgb = calcul_rgb(&map->texture.color_f);
-	printf("c:rgb = %d\n", map->texture.color_c.rgb);
-	printf("f:rgb = %d\n", map->texture.color_f.rgb);
 
 }
 

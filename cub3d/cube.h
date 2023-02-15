@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/15 18:35:01 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/15 21:07:31 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,19 @@ typedef struct s_texture
 	int		screenY;
 	int		rX;
 	int		rY;
+	int		wdth;
+	int		hght;
+	void	*ptr;
+	char 	*addr;
+	int		len;
+	int		bpp;
+	int		endian;
+	int		texdir; //direction NO, S, EA, WE de la texture
+	double	wallx; // valeur où le mur a été touché : coordonnée y si side == 0, coordonnée x si side == 1
+	int		texx; // coordonnée x de la texture
+	int		texy; // coordonée y de la texture
+	double	step; // indique de combien augmenter les coordonnées de la texture pour chaque pixel
+	double	texpos; // coordonnée de départ
 } t_texture;
 
 typedef struct s_ray
@@ -174,7 +187,11 @@ void		pixel_square(t_map *map, int x, int y, int color);
 void		pixel_square2(t_map *map, int x, int y, int color);
 
 //TEXTURE.c
-void		init_texture(t_map *map);//TEST
+void		init_texture(t_map *map);
+void    	check_texture(t_map *map, char *path);
+void		load_texture(t_map *map);//TEST
+void		calc_texture(t_map *map);//TEST
+void		put_wall(t_map *map, int x);
 
 //UTILS.c
 void		find_player(t_map *map);
@@ -183,5 +200,6 @@ void		my_mlx_pixel(t_map *map, int x, int y, int color);
 
 //------------TEST-----------------//
 void		pixel_player(t_map *map, int x, int y, int color);//old
+void		pixel_wall(t_map *map);//TEST
 
 #endif
