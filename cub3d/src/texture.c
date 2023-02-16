@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:48:58 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/15 21:10:17 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:01:52 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ void	put_wall(t_map *map, int x)
 	int	y;
 
 	y = map->ray.drawstart;
-	while (y < map->ray.drawend)
+	while (y <= map->ray.drawend)
 	{
 		map->texture.texy = (int)map->texture.texpos & (map->texture.hght -1);
 		map->texture.texpos += map->texture.step;
-		color = map->texture.addr[map->texture.hght * map->texture.texy + map->texture.texx];
+		color = (int)map->addr[map->texture.hght * map->texture.texy + map->texture.texx];
 		if (map->ray.side == 1)
 			color = (color >> 1) & 8355711;
-		map->texture.addr[y * (map->texture.rX) + x] = color;//WARNING
+		map->addr[y * (map->texture.rX) + x] = (char)color;//WARNING
 		y++;
 	}
 }

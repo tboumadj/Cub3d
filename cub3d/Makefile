@@ -6,7 +6,7 @@
 #    By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/08 17:59:20 by tboumadj          #+#    #+#              #
-#    Updated: 2023/02/15 21:08:21 by tboumadj         ###   ########.fr        #
+#    Updated: 2023/02/16 17:57:07 by tboumadj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ SRCS = main.c \
 		src/print.c \
 		src/texture.c
 CC = gcc
-FLAGS = -Wall -Wextra -Werror -Ofast -march=native ##-Wno-deprecated
+FLAGS = -Wall -Wextra -Werror -Ofast -march=native -g ##-Wno-deprecated
 MLX	= -Lmlx -lmlx -framework OpenGl -framework AppKit
 RM = rm -f
 CHECK = -fsanitize=address
@@ -43,7 +43,7 @@ _GREEN  =   $'\x1b[32m
 $(NAME): $(OBJS) 
 	@$(MAKE) -C libft/
 	@$(MAKE) -C mlx/
-	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX) $(CHECK)
+	@$(CC) $(FLAGS) $(OBJS) libft/libft.a -o $(NAME) $(MLX)
 	echo "$(_RED)Compilation Cub3d en cours...$(_END)"
 	echo "$(_GREEN)$(_BOLD)Fin de la compilation!$(_END)"
 

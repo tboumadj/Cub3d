@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/15 21:07:31 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:28:17 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,6 +200,6 @@ void		my_mlx_pixel(t_map *map, int x, int y, int color);
 
 //------------TEST-----------------//
 void		pixel_player(t_map *map, int x, int y, int color);//old
-void		pixel_wall(t_map *map);//TEST
+void		pixel_wall(t_map *map, int x);//TEST
 
 #endif

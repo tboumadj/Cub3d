@@ -6,13 +6,13 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:45:28 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/15 18:34:50 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:13:34 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cube.h"
 
-int val_c(char c)
+static int val_c(char c)
 {
 	if ((c == '1') || (c == '0') || (c == 'N') 
 			|| (c == 'S') || (c == 'E') || (c == 'W'))
