@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:29:08 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/16 18:54:55 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:39:46 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,8 +162,8 @@ void    op_vector(t_map *map)
 			color = color / 2;
 		//print_c(map);
 		//print_f(map);
-		//pixel_wall(map, x);
-		pixel_put3(map, x, color);
+		//pixel_put3(map, x, color);
+		pixel_wall(map, x);
 		
 		x++;
 		//mlx_clear_window(map->mlx, map->win);

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 00:30:02 by tboumadj@student  #+#    #+#             */
-/*   Updated: 2023/02/15 19:27:40 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:38:47 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ void	ft_screen(t_map *map)
 {
     map->mlx = mlx_init();
 	//----------TEST SCREEN SIZE-------
-	mlx_get_screen_size(map->mlx, &map->texture.screenX, &map->texture.screenY);
+	/*mlx_get_screen_size(map->mlx, &map->texture.screenX, &map->texture.screenY);
 	map->texture.rX = (map->texture.rX > map->texture.screenX) ? map->texture.screenX : map->texture.rX;
 	map->texture.rY = (map->texture.rY > map->texture.screenY) ? map->texture.screenY : map->texture.rY;
 	printf("rX2 = %d ", map->texture.rX);
-	printf("rY2 = %d\n", map->texture.rY);
+	printf("rY2 = %d\n", map->texture.rY);*/
 	//---------------------
 	map->win = mlx_new_window(map->mlx, map->texture.rX, map->texture.rY, "Cub3d");
 	map->img = mlx_new_image(map->mlx, map->texture.rX, map->texture.rY);

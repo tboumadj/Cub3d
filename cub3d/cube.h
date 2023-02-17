@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/16 16:28:17 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/17 23:03:47 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_texture
 	int		hght;
 	void	*ptr;
 	char 	*addr;
+	int		*dst;
 	int		len;
 	int		bpp;
 	int		endian;
@@ -126,6 +127,7 @@ typedef struct s_map
 	t_ray		ray;
 	void		*img;
 	char		*addr;
+	int			*dst;
 	int			bits_per_pixel;
 	int			line_length;
 	int			endian;

@@ -6,7 +6,7 @@
 /*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:48:58 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/16 18:01:52 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/17 23:06:21 by tboumadj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void	load_texture(t_map *map)
 	if (map->ray.side == 0 && map->ray.stepX == -1)
 		map->texture.ptr = mlx_xpm_file_to_image(map->mlx,
 			map->texture.nord, &map->texture.wdth, &map->texture.hght);
-	if (map->ray.side == 0 && map->ray.stepX == 1)
+	else if (map->ray.side == 0 && map->ray.stepX == 1)
 		map->texture.ptr = mlx_xpm_file_to_image(map->mlx,
 			map->texture.sud, &map->texture.wdth, & map->texture.hght);
-	if (map->ray.side == 1 && map->ray.stepY == -1)
+	else if (map->ray.side == 1 && map->ray.stepY == -1)
 		map->texture.ptr = mlx_xpm_file_to_image(map->mlx,
-			map->texture.ouest, & map->texture.wdth, &map->texture.hght);
-	if (map->ray.side == 1 && map->ray.stepY == 1)
+			map->texture.ouest, &map->texture.wdth, &map->texture.hght);
+	else if (map->ray.side == 1 && map->ray.stepY == 1)
 		map->texture.ptr = mlx_xpm_file_to_image(map->mlx,
 			map->texture.est, &map->texture.wdth, &map->texture.hght);
 	map->texture.addr = mlx_get_data_addr(map->texture.ptr,
@@ -80,16 +80,21 @@ void	put_wall(t_map *map, int x)
 {
 	int	color;
 	int	y;
+	int *dst;
 
 	y = map->ray.drawstart;
-	while (y <= map->ray.drawend)
+	//printf("y = %d\n", y);
+	//printf("x = %d\n", x);
+	dst = (int*)map->addr;
+	while (y < map->ray.drawend)
 	{
 		map->texture.texy = (int)map->texture.texpos & (map->texture.hght -1);
 		map->texture.texpos += map->texture.step;
-		color = (int)map->addr[map->texture.hght * map->texture.texy + map->texture.texx];
+		color = (int)map->texture.addr[map->texture.hght * map->texture.texy + map->texture.texx];
 		if (map->ray.side == 1)
 			color = (color >> 1) & 8355711;
-		map->addr[y * (map->texture.rX) + x] = (char)color;//WARNING
+		dst[y * (map->texture.rX) + x] = color;
+		//map->addr[y * (map->texture.rX) + x] = color;//WARNING
 		y++;
 	}
 }
