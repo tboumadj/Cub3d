@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cube.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tboumadj <tboumadj@student.42mulhouse.fr>  +#+  +:+       +#+        */
+/*   By: tboumadj@student.42mulhouse.fr <tboumadj>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 17:43:38 by tboumadj          #+#    #+#             */
-/*   Updated: 2023/02/21 17:16:18 by tboumadj         ###   ########.fr       */
+/*   Updated: 2023/02/22 06:42:45 by tboumadj@student ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,37 +71,37 @@ typedef struct s_texture
 	int		len;
 	int		bpp;
 	int		endian;
-	int		texdir;
-	double	wallx;
-	int		texx;
-	int		texy;
-	double	step;
-	double	texpos;
+	int		texdir;	//direction NO, S, EA, WE de la texture
+	double	wallx;	// valeur où le mur a été touché : coordonnée y si side == 0, coordonnée x si side == 1
+	int		texx;	// coordonnée x de la texture
+	int		texy;	// coordonée y de la texture
+	double	step;	// indique de combien augmenter les coordonnées de la texture pour chaque pixel
+	double	texpos;	// coordonnée de départ
 }	t_texture;
 
 typedef struct s_ray
 {
-	double	posx;
-	double	posy;
-	double	dirx;
-	double	diry;
-	double	planx;
-	double	plany;
-	double	camerax;
-	double	raydirx;	
-	double	raydiry;
-	double	sidedistx;
-	double	sidedisty;
-	double	deltadistx;
-	double	deltadisty;
-	double	distwallp;
-	int		stepx;
-	int		stepy;
-	int		hit;
-	int		side;
-	int		lineheight;
-	int		drawstart;
-	int		drawend;
+	double	posx;	//pos joueur sur map double (vertical X)
+	double	posy;	//pos joueur sur map double (horizon Y)
+	double	dirx;	//direction du vecteur (-1N, 1S, 0)
+	double	diry;	//direction du verccteur (-1W, 1E, 0)
+	double	planx;	//vecteur plan (0.66.E, -0.66W, 0)
+	double	plany;	//vecteur plan (0.66N, -0.66S, 0)
+	double	camerax;	//camera sur X (G.-1, C.0, D.1) | cameraX= 2 * x / (double)width -1
+	double	raydirx;	//calcul direction X rayon | rdX= dirX + planX * cameraX
+	double	raydiry;	//calcul direction Y rayon | rdY= dirY + planY * cameraXir
+	double	sidedistx;	//distance rayon jusq. inter. vertical (x)
+	double	sidedisty;	//distance rayon jusq. inter. horizon (y)
+	double	deltadistx;	//distance entre chaq. inter. vertical (x)
+	double	deltadisty;	//distance entre chaq. inter. horizon (y)
+	double	distwallp;	//distance du joueur au mur
+	int		stepx;		//-1 si saut carre neg. (X)/ 1 si (X) positif
+	int		stepy;		//-1 si saut carre neg (Y)/	1 si (Y) positif
+	int		hit;		//1 si mur hit/ else 0
+	int		side;		//0 si cote hit = X / 1 si cote hit = Y
+	int		lineheight;	//hauteur ligne to draw	| lineheight= (int)(height/distwallP)
+	int		drawstart;	//start pos to draw	| drawstart= -lineheight / 2 + height / 2
+	int		drawend;	//end pos to draw	| drawend=	lineheight / 2 + height / 2
 }	t_ray;
 
 typedef struct s_index
@@ -118,10 +118,10 @@ typedef struct s_map
 	char		**map;
 	char		**text;
 	int			len;
-	int			playx;
-	int			playy;
-	double		movespeed;
-	double		rotspeed;
+	int			playx;	//pos joueur sur map (vertical X)   (= posX)
+	int			playy;	//pos joueur sur map (horizontal Y)	(= posY)
+	double		movespeed;	//-vitesse mouvement joueur
+	double		rotspeed;	//-vitesse rotation joueur
 	t_index		index;
 	t_color		color;
 	t_texture	texture;
